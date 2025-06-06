@@ -1,3 +1,5 @@
 {
-  "/api/pages/[id]/seo/generate/route": "app/api/pages/[id]/seo/generate/route.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/auth/login/route": "app/api/auth/login/route.js",
+  "/api/pages/bulk-update/route": "app/api/pages/bulk-update/route.js"
 }
