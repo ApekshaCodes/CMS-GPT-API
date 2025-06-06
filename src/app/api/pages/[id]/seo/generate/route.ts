@@ -4,19 +4,26 @@ import Page from '../../../../../models/page';
 import { verifyToken } from '../../../../../lib/auth';
 import { generateSEO } from '../../../../../lib/openai';
 
-export async function POST(req: NextRequest, context: { params: { id: string } }) {
+export async function POST(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
   try {
+    // ✅ Check for token
     const token = req.headers.get('authorization')?.split(' ')[1];
+    console.log('🔍 Token:', token);
     if (!token) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const decoded: any = verifyToken(token); // You can skip this if it's an internal tool
-
+    const decoded: any = verifyToken(token);
+    console.log('🔍 Decoded token:', decoded);
     await connectToDatabase();
 
-    const { id } = context.params;
-    const page = await Page.findById(id);
+    const pageId = params.id;
+    console.log('🔍 Page ID:', pageId);
+    const page = await Page.findById(pageId);
+    console.log('🔍 Page found:', page);
     if (!page) {
       return NextResponse.json({ error: 'Page not found' }, { status: 404 });
     }
@@ -30,7 +37,6 @@ export async function POST(req: NextRequest, context: { params: { id: string } }
     page.meta_title = seo.meta_title;
     page.meta_description = seo.meta_description;
     page.keywords = seo.keywords;
-
     await page.save();
 
     return NextResponse.json({ message: 'SEO metadata generated', seo });
