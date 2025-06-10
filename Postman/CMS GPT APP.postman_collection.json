@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "87e6d5fb-99fe-4949-906c-7cd3eec1134d",
+		"name": "CMS GPT APP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37374722"
+	},
+	"item": [
+		{
+			"name": "Seed",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/pages/seed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"pages",
+						"seed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Signup",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"test123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"test123\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Seo Generate",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODQyYjY5MTBjYzAzMjhlYWMyNjJjZDYiLCJpYXQiOjE3NDkyMDI2MTQsImV4cCI6MTc0OTIwMzUxNH0.C0mrRLcr-py-pSPenHW9RD00_t3czGG0N_C_HZJ0sYM",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/pages/6842b53f0cc0328eac262cd0/seo/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"pages",
+						"6842b53f0cc0328eac262cd0",
+						"seo",
+						"generate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bulk Update",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODQyYjY5MTBjYzAzMjhlYWMyNjJjZDYiLCJpYXQiOjE3NDk1MzEwNjEsImV4cCI6MTc0OTUzMTk2MX0.NjhuES1VLzsXIfbC-2opdlCdZdU_N5mjmIF-xSBYLt4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"updates\": [\r\n    {\r\n      \"id\": \"6842b53f0cc0328eac262cd0\",\r\n      \"title\": \"Updated SEO Title for Bali\",\r\n      \"content\": \"New updated content for Bali blog\"\r\n    },\r\n    {\r\n      \"id\": \"6842b53f0cc0328eac262cd1\",\r\n      \"content\": \"Only updating content for another page\"\r\n    }\r\n  ]\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/pages/bulk-update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"pages",
+						"bulk-update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
